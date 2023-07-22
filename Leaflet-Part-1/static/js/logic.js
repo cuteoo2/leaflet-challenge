@@ -152,28 +152,31 @@ let legend = L.control({
 });
 
 //add legend
-legend.onAdd = function() {
+let Legend = L.control({
+    position: "bottomright"
+  });
+
+  Legend.onAdd = function () {
     let div = L.DomUtil.create("div", "info legend");
-    let intervals = [-10,10,30,50,70,90];
+
+    let grades = [-10, 10, 30, 50, 70, 90];
     let colors = [
-        "#34ebeb",
-        "#77eb34",
-        "#e5eb34",
-        "#ebcd34",
-        "#eb4334"
-    ];
+      "#98ee00",
+      "#d4ee00",
+      "#eecc00",
+      "#ee9c00",
+      "#ea822c",
+      "#ea2c2c"];
 
-
-    for(var i = 0; i < intervals.length; i++){
-        div.innerHTML += "<i style='background: "
-            + colors[i]
-            + "'></i> "
-            + invervals[i]
-            + (invervals[i + 1] ? "km &ndash km;" + intervals[i + 1] + "km<br>" : "+");
+    // Loop through our intervals and generate a label with a colored square for each interval.
+    for (let i = 0; i < grades.length; i++) {
+      div.innerHTML += "<i style='background: "
+        + colors[i]
+        + "'></i> "
+        + grades[i]
+        + (grades[i + 1] ? "&ndash;" + grades[i + 1] + "<br>" : "+");
     }
-
     return div;
+  };
 
-};
-
-legend.addTo(myMap);
+  Legend.addTo(myMap);
