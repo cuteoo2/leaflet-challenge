@@ -11,4 +11,5 @@ static: css (styles.css), js (logic.js: JavaScript to generate the maps), images
 index.html: base html to hold the map.
 
 
+![image](https://github.com/cuteoo2/leaflet-challenge/assets/122655370/86065657-8870-4232-8eaa-10a849d90392)
 
